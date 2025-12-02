@@ -44,19 +44,36 @@ Step 4: Test Your Solution
 
 function processFile(fileName, fileData) {
   try {
-    // TODO: Add input validation here
-    
-    // TODO: Implement simulated file processing here
+    // Validate if fileName is not empty
+    if (!fileName) {
+      throw new ReferenceError("File Name is missing!");
+    }
+
+    //Validate if fileData is not a String
+    if (typeof fileData !== "string") {
+      throw new TypeError("File data must be a string!");
+    }
+
+    //Validate if fileDate is not empty
+    if (fileData.trim() === "") {
+      throw new Error("File data cannot be empty!");
+    }
+
+    // Implementing simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
-    
-    // TODO: Add simulated file operations (reading/writing)
-    
+
+    // Add simulated file operations (reading/writing)
+    console.log("Reading and Writing the File Data..");
+
+    // Implement error handling
   } catch (err) {
-    // TODO: Implement error handling
-    console.error(err);
+    console.error(`${err.name} : ${err.message}`);
+
+    // Implement a finally block to close resources
+  } finally {
+    console.log("File processing completed. Resources closed.");
   }
-  // TODO: Implement a finally block to close resources
 }
 
 // ============================================
